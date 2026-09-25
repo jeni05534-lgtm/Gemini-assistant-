@@ -1,0 +1,65 @@
+
+
+*Project Structure:*
+
+*1. `app.py` - Main Code (Itha copy pannunga)*
+import streamlit as st
+import google.generativeai as genai
+
+Gemini API Key Setup
+genai.configure(api_key="YOUR_GEMINI_API_KEY")
+
+st.set_page_config(page_title="EdGenie - AI Learning Assistant")
+st.title("🧞 EdGenie: Google Gemini Learning Assistant")
+st.write("Unakku etha doubt irunthalum ketukalam!")
+
+Chat History
+if "messages" not in st.session_state:
+    st.session_state.messages = []
+
+for msg in st.session_state.messages:
+    st.chat_message(msg["role"]).write(msg["content"])
+
+User Input
+if prompt := st.chat_input("Enna doubt? Ex: Explain Photosynthesis"):
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    st.chat_message("user").write(prompt)
+
+    # Gemini Response
+    model = genai.GenerativeModel("gemini-1.5-flash")
+    response = model.generate_content(f"You are EdGenie, a friendly learning assistant. Explain simply: {prompt}")
+    
+    answer = response.text
+    st.session_state.messages.append({"role": "assistant", "content": answer})
+    st.chat_message("assistant").write(answer)
+*2. `requirements.txt`*
+streamlit
+google-generativeai
+python-dotenv
+*3. `README.md`*
+EdGenie - Google Gemini Powered Learning Assistant
+A simple AI assistant to help students learn.
+
+Features
+- Doubt clearing
+- Concept explanation
+- Powered by Gemini 1.5 Flash
+
+How to Run
+pip install -r requirements.txt
+streamlit run app.py
+*GitHub la Epdi Upload Pannanum?*
+
+Lenovo laptop la itha pannunga:
+
+1. http://GitHub.com la poi *New Repository* -> Name: `EdGenie-Learning-Assistant` -> Create
+2. Laptop la `EdGenie` nu oru folder create panni, mela irukura 3 files ah create pannunga
+3. VS Code open panni Terminal la itha type pannunga:
+git init
+git add .
+git commit -m "EdGenie initial commit"
+git branch -M main
+git remote add origin https://github.com/UNGA_USERNAME/EdGenie-Learning-Assistant.git
+git push -u origin main
+*Gemini API Key enga edukanum?*
+Google la `aistudio.google.com` -> Get API Key -> Create -> Key ah copy panni `YOUR_GEMINI_API_KEY`
