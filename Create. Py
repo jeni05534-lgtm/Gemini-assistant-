@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduGenie - Gemini Learning Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{font-family:'Poppins',sans-serif;box-sizing:border-box}
+body{margin:0;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;padding:15px}
+.app{max-width:950px;margin:auto;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.2)}
+.header{background:#111827;color:#fff;padding:20px;text-align:center}
+.header h1{margin:0;font-size:24px}
+.header p{opacity:.7;margin:5px 0 0}
+.apikey-box{padding:15px;background:#fff3cd;display:flex;gap:10px}
+.apikey-box input{flex:1;padding:10px;border-radius:8px;border:1px solid #ccc}
+.apikey-box button{padding:10px 15px;background:#111827;color:#fff;border:none;border-radius:8px}
+.main{display:grid;grid-template-columns:280px 1fr;height:600px}
+.sidebar{background:#f8fafc;padding:15px;border-right:1px solid #eee;display:flex;flex-direction:column;gap:10px}
+.sidebar button{padding:12px;border:none;border-radius:10px;text-align:left;cursor:pointer;background:#fff;border:1px solid #e5e7eb}
+.sidebar button:hover{background:#667eea;color:#fff}
+.chat{padding:15px;display:flex;flex-direction:column}
+.messages{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:12px;margin-bottom:15px}
+.msg{padding:12px 15px;border-radius:15px;max-width:85%;line-height:1.5;font-size:14px}
+.user{background:#667eea;color:#fff;align-self:flex-end;border-bottom-right-radius:3px}
+.bot{background:#f3f4f6;color:#111;
